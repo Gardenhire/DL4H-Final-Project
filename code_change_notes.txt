@@ -1,0 +1,3 @@
+
+Updated Utils/__main__.py
+1. Changed path to data so that script can be run from jupyter lab
