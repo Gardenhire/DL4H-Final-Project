@@ -11,7 +11,7 @@ from transformers import (
     DPRReader, DPRReaderTokenizer
     )
 
-from dpr.indexer.faiss_indexers import DenseFlatIndexer
+from faiss_indexers import DenseFlatIndexer
 
 
 def iterate_encoded_files(file):
@@ -204,7 +204,7 @@ def dense_retriever(questions, question_encoder, text_corpus, corpus_embedded, r
 # ############################################### READER ##############################################################
 # facebook/dpr-reader-single-nq-base
 def extractive_reader(retrieved_passages, reader, span_answers):
-    
+
     tokenizer = DPRReaderTokenizer.from_pretrained(reader)
     model = DPRReader.from_pretrained(reader)
     
@@ -232,16 +232,20 @@ def extractive_reader(retrieved_passages, reader, span_answers):
 
 if __name__ == "__main__":
 
-    text_corpus = "../data/training/sleep-corpus.tsv"
-    questions = "../data/training/sleep-test.csv"
+    current_directory_os = os.getcwd()
+    print(f"Current working directory (using os): {current_directory_os}")
+
+
+    text_corpus = "data/training/sleep-corpus.tsv"
+    questions = "data/training/sleep-test.csv"
     
-    ctx_encoder = "pytorch/ctx_encoder/"
-    question_encoder = "pytorch/question_encoder/"
-    reader = "pytorch/reader/"
+    ctx_encoder = "models/pytorch/ctx_encoder/"
+    question_encoder = "models/pytorch/question_encoder/"
+    reader = "models/pytorch/reader"
     
-    corpus_embedded = "processed/sleep-corpus_e29"
-    retrieved_passages = "processed/sleep_test_e29.csv"
-    span_answers = "processed/pipeline1_label_1.250.csv"
+    corpus_embedded = "models/processed/sleep-corpus_e29"
+    retrieved_passages = "models/processed/sleep_test_e29.csv"
+    span_answers = "models/processed/pipeline1_label_1.250.csv"
     
     #generate_dense_encodings(text_corpus, ctx_encoder, corpus_embedded)
     

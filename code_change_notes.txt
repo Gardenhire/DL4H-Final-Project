@@ -1,3 +1,6 @@
 
 Updated Utils/__main__.py
 1. Changed path to data so that script can be run from jupyter lab
+2. updated qa_system.py static path files to allow the file to be run from jupyter notebook
+3. Facebook DPR project utilizes deprecated setup tools configuration and the instructions for installing it from source would not work. To make the project work we needed to extract necessary methods from the DPR module and create our own local module that our python code could reference. 
+
