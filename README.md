@@ -140,8 +140,8 @@ Follow these steps to run the notebook in Google Colab:
 
 After successfully running all cells in **`final.ipynb`**, you should observe:
 
-* Generated plots and visualizations related to the data analysis.
-* Output from the QA pipeline, displaying answers generated for the 500 provided questions based on the corresponding passages.
+* Generated plots and visualizations related to the data analysis will be located at the root folder
+* Output from the QA pipeline, displaying answers generated for the 500 provided questions based on the corresponding passages will be located at /models/processed/pipeline1_label_1.250.csv
 
 ## Troubleshooting
 
